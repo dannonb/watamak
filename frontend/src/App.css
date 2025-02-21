@@ -1,0 +1,10 @@
+.app {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  input, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+  }
