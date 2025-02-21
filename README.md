@@ -1,6 +1,10 @@
-# README
+# Watamak: The bulk image watermarking tool
 
-## About
+## About Watamak
+
+This tools is designed to allow user to upload multiple images and apply a watermark to them all at once
+
+## About Wails
 
 This is the official Wails React template.
 
