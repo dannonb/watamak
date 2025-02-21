@@ -8,3 +8,31 @@
     margin: 10px auto;
     padding: 10px;
   }
+
+  button {
+    padding: 14px;
+    letter-spacing: 1px;
+    font-size: small;
+    font-weight: bold;
+    background-color: #2C8BFD;
+    border: none;
+    color: white;
+  }
+
+  button:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #1E3E71;
+    scale: 1.1;
+  }
+
+  .logo-section {
+    margin-bottom: 40px;
+  }
+
+  .image-selection {
+    margin-bottom: 20px;
+  }
+
+  .watermark-input {
+    margin-bottom: 40px;
+  }

@@ -1,6 +1,6 @@
 // import {useState} from 'react';
-// import logo from './assets/images/logo-universal.png';
-// import './App.css';
+import logo from "./assets/images/watamak-logo.png";
+import "./App.css";
 // import {Greet} from "../wailsjs/go/main/App";
 
 // function App() {
@@ -28,7 +28,11 @@
 // export default App
 
 import { useState, useEffect } from "react";
-import { UploadAndWatermark, GetDefaultOutputPath, SelectFile } from "../wailsjs/go/main/App";
+import {
+  UploadAndWatermark,
+  GetDefaultOutputPath,
+  SelectFile,
+} from "../wailsjs/go/main/App";
 
 function App() {
   const [files, setFiles] = useState([]);
@@ -74,8 +78,11 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <h1>Image Watermarking App</h1>
+    <div id="app">
+      <div className="logo-section">
+        <img src={logo} id="logo" alt="logo" />
+        <h1>Watamak</h1>
+      </div>
 
       {/* <input
         type="file"
@@ -83,14 +90,21 @@ function App() {
         accept="image/*"
         onChange={handleFileChange}
       /> */}
+      <div className="image-selection">
       <button onClick={selectFiles}>Select Images</button>
-      <p>{files.length > 0 ? `${files.length} files selected` : "No files selected"}</p>
+      <p>
+        {files.length > 0
+          ? `${files.length} files selected`
+          : "No files selected"}
+      </p>
+      </div>
 
       <input
         type="text"
         value={watermarkText}
         onChange={(e) => setWatermarkText(e.target.value)}
         placeholder="Enter watermark text"
+        className="watermark-input"
       />
       <p>Output Folder: {outputPath || "Not set"}</p>
       <button onClick={processImages}>Apply Watermark</button>

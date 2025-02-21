@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"embed"
 
 	// "github.com/disintegration/imaging"
 	"github.com/golang/freetype"
@@ -19,6 +20,9 @@ import (
 	// "golang.org/x/image/font"
 	// "golang.org/x/image/math/fixed"
 )
+
+//go:embed assets/Roboto-Regular.ttf
+var fontData embed.FS
 
 // App struct
 type App struct {
@@ -101,7 +105,7 @@ func addTextWatermark(img image.Image, text string) image.Image {
 	// draw.Draw(result, watermark.Bounds().Add(offset), watermark, image.Point{}, draw.Over)
 
 	// Load font
-	fontBytes, err := os.ReadFile("assets/Roboto-Regular.ttf") // Ensure this font file exists
+	fontBytes, err := fontData.ReadFile("assets/Roboto-Regular.ttf") // Ensure this font file exists
 	if err != nil {
 		fmt.Println("Error loading font:", err)
 		return img
@@ -127,7 +131,7 @@ func addTextWatermark(img image.Image, text string) image.Image {
 	c.SetFontSize(48) // Adjust watermark text size
 	c.SetClip(rgba.Bounds())
 	c.SetDst(rgba)
-	c.SetSrc(image.NewUniform(color.RGBA{255, 255, 255, 100})) // White semi-transparent
+	c.SetSrc(image.NewUniform(color.RGBA{255, 255, 255, 80})) // White semi-transparent
 
 	// Define text placement
 	pt := freetype.Pt(bounds.Dx()/10, bounds.Dy()/2) // Adjust positioning
