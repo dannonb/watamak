@@ -2,7 +2,7 @@
 
 ## About Watamak
 
-This tools is designed to allow user to upload multiple images and apply a watermark to them all at once
+This tool is designed to allow users to upload multiple images and apply a watermark to them all at once
 
 ## About Wails
 
